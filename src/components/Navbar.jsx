@@ -14,13 +14,20 @@ function Navbar({cartQuantity,setCartQuantity}) {
   return (
     <div className='flex m-5 p-4 ml-50 border-b  border-b-slate-300'>
         <img src={logo} alt="logo" className='w-[150px] h-[30px]'/>
-        <div className='flex m-2 gap-10 ml-20 text-[hsl(220,14%,75%)] hover: text-[hsl(219,9%,45%)] cursor-pointer '>
-            <span>Collections</span>
-            <span>Men</span>
-            <span>Women</span>
-            <span>About</span>
-            <span>Contact</span>
-        </div>
+        <div className="flex gap-10 ml-20 text-[hsl(220,14%,75%)] h-full">
+  {["Collections", "Men", "Women", "About", "Contact"].map((item, i) => (
+    <span
+      key={i}
+      className="flex items-center h-full cursor-pointer 
+      border-b-2 border-transparent
+      hover:text-[hsl(219,9%,45%)] 
+      hover:border-orange-500 transition-all duration-200"
+      
+    >
+      {item}
+    </span>
+  ))}
+</div>
         <div className='flex ml-110 gap-5 cursor-pointer '>
             <img src={cart} alt="cart-icon" className='w-[40px]  h-[37px] p-2 'onClick={handleCart}/>
             
